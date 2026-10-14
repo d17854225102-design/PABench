@@ -1,3 +1,5 @@
+[中文版](P001-dynamic-planning.zh-CN.md)
+
 # P001 — Dynamic Multi-Constraint Trip Planning
 
 ## Metadata

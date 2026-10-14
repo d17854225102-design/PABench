@@ -1,3 +1,5 @@
+> [中文版](task-design.zh-CN.md)
+
 # Task Design Specification
 
 A PABench task is a standardized scenario used to evaluate Personal AI Agents.

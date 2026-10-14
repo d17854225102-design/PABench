@@ -1,3 +1,5 @@
+[中文版](methodology.zh-CN.md)
+
 # Evaluation Methodology
 
 ## Human Evaluation Track

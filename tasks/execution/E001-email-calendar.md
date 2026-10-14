@@ -1,3 +1,5 @@
+> [中文版](E001-email-calendar.zh-CN.md)
+
 # E001 — Email-to-Calendar Coordination
 
 ## Metadata

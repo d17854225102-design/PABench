@@ -1,3 +1,5 @@
+> [中文版](task-template.zh-CN.md)
+
 # Task ID — Task Name
 
 ## Metadata

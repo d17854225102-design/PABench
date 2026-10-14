@@ -1,3 +1,5 @@
+> [中文版](evaluation-template.zh-CN.md)
+
 # Evaluation Record — <Product> × <Task ID>
 
 > One record per run. Copy this template to

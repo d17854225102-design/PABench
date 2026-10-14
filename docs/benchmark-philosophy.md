@@ -1,3 +1,5 @@
+> [中文版](benchmark-philosophy.zh-CN.md)
+
 # PABench Philosophy
 
 ## Why Personal Agent Benchmark?

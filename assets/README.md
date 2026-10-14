@@ -1,5 +1,7 @@
 # PABench Test Assets
 
+> [中文版](README.zh-CN.md)
+
 Fictional test data for PABench tasks. Nothing here is real personal data;
 all names, companies, addresses, and events are invented for evaluation.
 

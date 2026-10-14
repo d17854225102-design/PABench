@@ -1,3 +1,5 @@
+> [中文版](scoring.zh-CN.md)
+
 # PABench Scoring Framework
 
 ## Capability Dimensions

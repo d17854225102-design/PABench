@@ -1,5 +1,7 @@
 # PABench Results
 
+> [中文版](README.zh-CN.md)
+
 Evaluation results per product. Each product directory holds one folder per
 task, and each run is a single record file copied from
 `templates/evaluation-template.md`.

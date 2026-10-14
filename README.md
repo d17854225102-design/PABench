@@ -1,5 +1,7 @@
 # PABench
 
+> [中文版](README.zh-CN.md)
+
 ## Personal Agent Benchmark
 
 PABench is an open evaluation framework for consumer Personal AI Agents.

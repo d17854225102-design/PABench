@@ -1,5 +1,7 @@
 # Sample Emails — E001 Mailbox Fixture
 
+> [中文版](README.zh-CN.md)
+
 Seed emails 01–05 into the test mailbox **before** E001 Phase A. Keep them
 unread. Email 06 is the Phase C change — inject it **after** Phase B.
 

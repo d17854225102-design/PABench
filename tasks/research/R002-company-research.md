@@ -1,3 +1,5 @@
+> [中文版](R002-company-research.zh-CN.md)
+
 # R002 — Company Research Dossier
 
 ## Metadata

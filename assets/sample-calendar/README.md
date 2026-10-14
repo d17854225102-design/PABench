@@ -1,5 +1,7 @@
 # Sample Calendar — E001 Calendar Fixture
 
+> [中文版](README.zh-CN.md)
+
 Import `initial-calendar.ics` into the **test calendar** before E001 Phase A.
 
 ## Ground Truth

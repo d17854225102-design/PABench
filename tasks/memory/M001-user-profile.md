@@ -1,3 +1,5 @@
+> [中文版](M001-user-profile.zh-CN.md)
+
 # M001 — User Profile & Long-Term Memory Establishment
 
 ## Metadata

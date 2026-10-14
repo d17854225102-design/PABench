@@ -1,3 +1,5 @@
+[中文版](runbook-template.zh-CN.md)
+
 # Runbook Template — Operator SOP for a PABench Task
 
 > A runbook turns a task specification (`tasks/...`) into step-by-step

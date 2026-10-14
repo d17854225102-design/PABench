@@ -1,3 +1,5 @@
+[中文版](R001-ai-industry-analysis.zh-CN.md)
+
 # R001 — AI Industry Research Brief
 
 ## Metadata
