@@ -9,6 +9,7 @@
 | Difficulty Level | 2 (multi-session, no external tools required) |
 | Version | 0.1 |
 | Persona | personas/knowledge-worker.md |
+| Runbook | tasks/memory/M001-user-profile.runbook.md (operator SOP) |
 
 ## Objective
 
