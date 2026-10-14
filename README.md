@@ -47,6 +47,18 @@ PABench v0.1 focuses on evaluating:
 - Cue
 - Grok Bot
 
+## Repository Structure
+
+```
+PABench/
+├── docs/          # Benchmark philosophy, methodology, scoring, task design
+├── tasks/         # Golden tasks (memory / research / execution / planning)
+├── personas/      # Reusable test personas
+├── templates/     # Task and evaluation templates
+└── results/       # Evaluation results per product
+```
+
 ## Project Status
 
-Early research framework. The first version focuses on methodology, task design, and reproducible evaluation cases.
+Framework v0.1 complete. Task Layer v0.1 in progress — first golden task:
+[M001 — User Profile & Long-Term Memory Establishment](tasks/memory/M001-user-profile.md).
