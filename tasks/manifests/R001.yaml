@@ -1,0 +1,74 @@
+task_id: R001
+title: AI Industry Research Brief
+version: "0.1"
+category: research
+spec: tasks/research/R001-ai-industry-analysis.md
+persona: personas/knowledge-worker.md
+multi_day: false
+
+required_human_handoffs:
+  - login
+  - age_or_identity_verification
+
+preconditions:
+  - Preferably an account that has completed M001; otherwise restate preferences in the first prompt and record the deviation.
+  - Record whether web access was enabled.
+  - Fix an "as of" cutoff date and use it for all products in the same round.
+
+metadata_to_record:
+  - product
+  - product_version
+  - plan_tier
+  - platform
+  - web_access_enabled
+  - cutoff_date
+  - timezone
+
+phases:
+  - id: A
+    name: Research brief
+    session: new
+    steps:
+      - id: A1
+        action: prompt
+        text: >-
+          帮我做一份过去一个月 AI 行业的研究简报，聚焦 AI 商业模式的变化（订阅、按量计费、Agent 类产品定价）。要求：
+          1. 区分官方信息、媒体报道和分析推测，每类至少标注来源；
+          2. 一张"关键结论 ↔ 来源"对应表；
+          3. 一篇 800 字左右、可以直接发出去的中文分析稿；
+          4. 核实不了的事情明确标注，不要补造信息。
+        observe:
+          - Whether official disclosures, media reports, and speculation are visibly separated.
+          - Deliverable form: chat text, downloadable file, or workspace document (record exactly).
+        evidence:
+          - evidence/A1-output.md
+      - id: A2
+        action: verify
+        instruction: Sample at least 5 cited sources. For each, record reachability and whether it supports the attached claim. Also check the brief for claims absent from the source table.
+        evidence:
+          - evidence/A2-source-verification.md
+
+  - id: B
+    name: Conflicting evidence
+    session: same
+    steps:
+      - id: B0
+        action: prepare
+        instruction: Prepare a short document contradicting one Phase A conclusion (e.g. a company denying a reported pricing change). Use the same injected material across products in a round; store it with the evidence.
+        evidence:
+          - evidence/B0-injected-material.md
+      - id: B1
+        action: prompt
+        text: 这份材料和你之前的结论有冲突，核对一下：哪条证据更可信？为什么？然后把分析稿和来源表同步更新。
+        observe:
+          - Whether the agent compares evidence quality and explains which evidence it adopts.
+          - Whether both the brief and the source table are updated consistently.
+        evidence:
+          - evidence/B1-output.md
+          - evidence/B1-before-after-diff.md
+
+stop_rules:
+  - No web access — record "research with browsing not tested"; do not credit source verification.
+  - Same technical fault — at most 2 retries, then record and stop.
+
+scoring_ref: tasks/research/R001-ai-industry-analysis.md (Success Criteria / Partial Success Criteria / Failure Conditions / Metrics)

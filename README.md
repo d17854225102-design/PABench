@@ -38,7 +38,22 @@ Real users interact with products through official applications and record:
 
 ### Agent Evaluation Track
 
-Browser automation agents can execute standardized scenarios to evaluate repeatability and scalability.
+The repository can be handed directly to an agent with browser/app control
+(e.g. a coding agent with desktop automation). The skill at
+`skills/pabench-run/SKILL.md` turns each task into a supervised,
+evidence-producing run:
+
+- Machine-readable manifests in `tasks/manifests/` drive execution: verbatim
+  prompts, session boundaries, waiting periods, evidence paths, stop rules.
+- The agent acts as the tester: operates the product, captures evidence, and
+  fills the evaluation record under `results/`.
+- Humans handle login, CAPTCHA, verification, and OAuth grants, and confirm
+  the agent-proposed scores.
+
+Example instruction to your agent:
+
+> Read `skills/pabench-run/SKILL.md` and run task M001 against `<product>`.
+> I will handle login and verification.
 
 ## Initial Products
 
@@ -53,14 +68,20 @@ PABench v0.1 focuses on evaluating:
 
 ```
 PABench/
-├── docs/          # Benchmark philosophy, methodology, scoring, task design
-├── tasks/         # Golden tasks (memory / research / execution / planning)
-├── personas/      # Reusable test personas
-├── templates/     # Task and evaluation templates
-└── results/       # Evaluation results per product
+├── docs/             # Benchmark philosophy, methodology, scoring, task design
+├── tasks/            # Golden tasks (memory / research / execution / planning)
+│   └── manifests/    # Machine-readable task definitions for agent runs
+├── personas/         # Reusable test personas
+├── templates/        # Task, runbook, and evaluation templates
+├── skills/           # pabench-run: agent execution skill
+├── assets/           # Fictional test fixtures (emails, calendar)
+├── results/          # Evaluation results per product
+└── AGENTS.md         # Entry point for agents picking up this repo
 ```
 
 ## Project Status
 
-Framework v0.1 complete. Task Layer v0.1 in progress — first golden task:
-[M001 — User Profile & Long-Term Memory Establishment](tasks/memory/M001-user-profile.md).
+Framework v0.1 and Task Layer v0.1 complete: five golden tasks
+([M001](tasks/memory/M001-user-profile.md), R001, R002, E001, P001),
+operator runbooks, test fixtures, Chinese translations, and agent-run
+support via `skills/pabench-run`.

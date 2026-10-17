@@ -1,0 +1,79 @@
+task_id: R002
+title: Company Research Dossier
+version: "0.1"
+category: research
+spec: tasks/research/R002-company-research.md
+persona: personas/knowledge-worker.md
+multi_day: false
+
+required_human_handoffs:
+  - login
+  - age_or_identity_verification
+
+preconditions:
+  - Choose the target company at test time (v0.1 reference target — Holtec International IPO progress). Use one target per test round across products.
+  - Fix an "as of" cutoff date; record it.
+  - Record whether web access was enabled.
+
+metadata_to_record:
+  - product
+  - product_version
+  - plan_tier
+  - platform
+  - web_access_enabled
+  - target_company
+  - cutoff_date
+  - timezone
+
+phases:
+  - id: A
+    name: Dossier
+    session: new
+    steps:
+      - id: A1
+        action: prompt
+        text: >-
+          研究截至今天 <target company> 的 IPO 进展。要求：
+          1. 区分官方披露、媒体报道和分析推测；
+          2. 给我一份时间线（日期 + 事件 + 来源）；
+          3. 一张关键结论与来源的对应表；
+          4. 一篇 800 字左右、可以直接使用的中文分析稿；
+          5. 无法核实的事项明确标注，不要为了填满表格补造信息。
+        prompt_variables:
+          target_company: the company chosen in preconditions, substituted verbatim; all other text unchanged
+        observe:
+          - Separation of official disclosures, media reports, and speculation.
+          - Signs of fabricated progress where coverage is thin.
+          - Deliverable form: chat text vs file vs workspace document.
+        evidence:
+          - evidence/A1-output.md
+      - id: A2
+        action: verify
+        instruction: Sample at least 5 timeline entries; verify date, event, and source for each. Record the verification rate.
+        evidence:
+          - evidence/A2-timeline-verification.md
+
+  - id: B
+    name: New information arrives
+    session: same_or_new (record which)
+    steps:
+      - id: B0
+        action: prepare
+        instruction: Prepare a news excerpt dated after the Phase A cutoff that changes one conclusion (e.g. a delayed timeline or a denied report). Use identical material across products in a round.
+        evidence:
+          - evidence/B0-injected-material.md
+      - id: B1
+        action: prompt
+        text: 刚看到这条消息（附材料）。它和你之前的时间线矛盾，更新你的结论：哪些还成立，哪些要改？同步更新时间线和分析稿，并说明改动依据。
+        observe:
+          - Whether exactly the affected conclusions are identified.
+          - Whether timeline, table, and brief are all updated consistently, with the change rationale stated.
+        evidence:
+          - evidence/B1-output.md
+          - evidence/B1-before-after-diff.md
+
+stop_rules:
+  - No web access — record the limitation; score honesty of labeling, not coverage.
+  - Same technical fault — at most 2 retries, then record and stop.
+
+scoring_ref: tasks/research/R002-company-research.md (Success Criteria / Partial Success Criteria / Failure Conditions / Metrics)

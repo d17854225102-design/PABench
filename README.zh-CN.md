@@ -38,7 +38,15 @@ PABench 评估六项关键能力：
 
 ### 自动化评测轨道
 
-浏览器自动化智能体可以执行标准化场景，以评估可复现性与可扩展性。
+本仓库可以直接交给具备浏览器/应用操作能力的 agent（例如带桌面自动化能力的编程 agent）。`skills/pabench-run/SKILL.md` 这个 skill 会把每个任务变成一次有人监督、产出证据的评测运行：
+
+- `tasks/manifests/` 中的机器可读 manifest 驱动执行：逐字 Prompt、会话边界、等待时长、证据路径、停止规则。
+- agent 扮演测试者：操作被测产品、采集证据，并在 `results/` 下填写评测记录卡。
+- 登录、验证码、年龄/身份验证、OAuth 授权由人处理；评分由 agent 给出建议、人确认。
+
+给你的 agent 的指令示例：
+
+> 阅读 `skills/pabench-run/SKILL.md`，对 `<产品>` 运行 M001 任务。登录和验证由我来处理。
 
 ## 首批评测产品
 
@@ -53,14 +61,19 @@ PABench v0.1 聚焦于评测：
 
 ```
 PABench/
-├── docs/          # 基准测试理念、方法论、评分、任务设计
-├── tasks/         # Golden Task（基准任务）（记忆 / 研究 / 执行 / 规划）
-├── personas/      # 可复用的测试用户画像（Persona）
-├── templates/     # 任务与评测模板
-└── results/       # 各产品的评测结果
+├── docs/             # 基准测试理念、方法论、评分、任务设计
+├── tasks/            # Golden Task（基准任务）（记忆 / 研究 / 执行 / 规划）
+│   └── manifests/    # 供 agent 运行的机器可读任务定义
+├── personas/         # 可复用的测试用户画像（Persona）
+├── templates/        # 任务、执行手册与评测模板
+├── skills/           # pabench-run：agent 执行 skill
+├── assets/           # 虚构测试数据集（邮件、日历）
+├── results/          # 各产品的评测结果
+└── AGENTS.md         # agent 接手本仓库的入口说明
 ```
 
 ## 项目状态
 
-框架 v0.1 已完成。任务层（Task Layer）v0.1 进行中——首个 Golden Task（基准任务）：
-[M001 — 用户画像与长期记忆建立](tasks/memory/M001-user-profile.md)。
+框架 v0.1 与任务层（Task Layer）v0.1 已完成：5 个 Golden Task（基准任务）
+（[M001](tasks/memory/M001-user-profile.md)、R001、R002、E001、P001）、
+操作执行手册、测试数据集、中文翻译，以及通过 `skills/pabench-run` 提供的 agent 运行支持。
