@@ -39,7 +39,7 @@ phases:
           4. 核实不了的事情明确标注，不要补造信息。
         observe:
           - Whether official disclosures, media reports, and speculation are visibly separated.
-          - Deliverable form: chat text, downloadable file, or workspace document (record exactly).
+          - Deliverable form — chat text, downloadable file, or workspace document (record exactly).
         evidence:
           - evidence/A1-output.md
       - id: A2

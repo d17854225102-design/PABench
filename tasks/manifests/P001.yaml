@@ -40,7 +40,7 @@ phases:
         prompt_variables:
           dates: the travel dates chosen in preconditions; all other text unchanged
         observe:
-          - Constraint coherence: transport times, meeting anchors, hotel location, and budget hold together.
+          - Constraint coherence — transport times, meeting anchors, hotel location, and budget hold together.
           - Every price carries a source and query time, or is marked as an unverified estimate.
           - Decision items surfaced for the user.
         evidence:

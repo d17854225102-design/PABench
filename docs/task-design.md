@@ -40,6 +40,10 @@ Results must have objective verification methods.
 
 A task completed with excessive user guidance should receive different evaluation from an autonomous completion.
 
+### 5. Separate evaluator-only and subject-visible content
+
+Ground truth, answer keys, and labels such as "test" or "fictional" belong only in evaluator instructions. They must not appear in prompts, email bodies, calendar titles, or other content visible to the product under test. Use isolated test accounts and permissions for safety; do not rely on telling the product that it is being evaluated.
+
 ## Task Complexity Levels
 
 ### Level 1

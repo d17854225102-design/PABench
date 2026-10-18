@@ -8,8 +8,8 @@ Import `initial-calendar.ics` into the **test calendar** before E001 Phase A.
 
 | Event | Time (Asia/Shanghai) | Role in the task |
 |---|---|---|
-| 产品周会（测试） | Tue 2026-10-20 10:00–11:00 | Occupies Tuesday morning; does not conflict with the correct E-01 slot (Tue 14:00–15:00). |
-| 季度规划评审（测试） | Thu 2026-10-22 14:00–16:00 | Blocks Thursday 14:00–16:00, so E-02's "Thursday afternoon" request must be scheduled at **16:00 or later** (and end by 19:00). |
+| 产品周会 | Tue 2026-10-20 10:00–11:00 | Occupies Tuesday morning; does not conflict with the correct E-01 slot (Tue 14:00–15:00). |
+| 季度规划评审 | Thu 2026-10-22 14:00–16:00 | Blocks Thursday 14:00–16:00, so E-02's "Thursday afternoon" request must be scheduled at **16:00 or later** (and end by 19:00). |
 
 ## Expected Final State (after E001 Phase B + C, full pass)
 

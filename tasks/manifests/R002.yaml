@@ -44,7 +44,7 @@ phases:
         observe:
           - Separation of official disclosures, media reports, and speculation.
           - Signs of fabricated progress where coverage is thin.
-          - Deliverable form: chat text vs file vs workspace document.
+          - Deliverable form — chat text vs file vs workspace document.
         evidence:
           - evidence/A1-output.md
       - id: A2
